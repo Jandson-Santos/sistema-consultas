@@ -1,34 +1,35 @@
 <?php
 session_start();
-require_once("../../config/db.php"); // Caminho correto para o db.php
+require_once("../../config/db.php");
+
 
 $erro = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = trim($_POST["email"]);
-    $senha = $_POST["senha"];
+    $login = trim($_POST["login"]);
+    $senha = trim($_POST["senha"]);
 
-    // Buscar paciente pelo email
-    $stmt = $conn->prepare("SELECT id, nome, senha FROM pacientes WHERE email = ?");
-    $stmt->bind_param("s", $email);
+    // Buscar paciente pelo login
+    $stmt = $conn->prepare("SELECT id, nome, senha FROM pacientes WHERE login = ?");
+    $stmt->bind_param("s", $login);
     $stmt->execute();
     $resultado = $stmt->get_result();
 
     if ($resultado->num_rows === 1) {
         $paciente = $resultado->fetch_assoc();
 
-        // Verificar senha com hash
-        if (password_verify($senha, $paciente["senha"])) {
-            // Login válido, criar sessão
+        // Verificar senha (simples, porque está em texto plano)
+        if ($senha === $paciente["senha"]) {
+            // Login válido, iniciar sessão
             $_SESSION["paciente_id"] = $paciente["id"];
             $_SESSION["paciente_nome"] = $paciente["nome"];
-            header("Location: perfil-paciente.php"); // redireciona para o perfil do paciente
+            header("Location: perfil-paciente.php"); // página do perfil ou dashboard
             exit();
         } else {
             $erro = "Senha incorreta.";
         }
     } else {
-        $erro = "Email não encontrado.";
+        $erro = "Login não encontrado.";
     }
 }
 ?>
@@ -38,23 +39,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8" />
     <title>Login Paciente</title>
-    <!-- Corrigido caminho para CSS: voltar 1 pasta para ../css/style.css -->
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
 </head>
 <body>
     <main>
-        <h1>Login Paciente</h1>
+        <h1>Login do Paciente</h1>
 
         <?php if ($erro): ?>
-            <p style="color:red;"><?php echo $erro; ?></p>
+            <p style="color: red;"><?php echo htmlspecialchars($erro); ?></p>
         <?php endif; ?>
 
         <form method="POST">
-            <label for="email">E-mail:</label><br />
-            <input type="email" id="email" name="email" required /><br /><br />
+            <label for="login">Login</label><br>
+            <input type="text" id="login" name="login" required><br><br>
 
-            <label for="senha">Senha:</label><br />
-            <input type="password" id="senha" name="senha" required /><br /><br />
+            <label for="senha">Senha</label><br>
+            <input type="password" id="senha" name="senha" required><br><br>
 
             <button type="submit">Entrar</button>
         </form>
