@@ -41,6 +41,7 @@
             <button type="submit">Agendar</button>
 
         </form>
+        <link rel="stylesheet" href="css/style.css" />
     </main>
 
 </body>

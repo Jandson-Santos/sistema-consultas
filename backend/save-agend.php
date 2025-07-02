@@ -17,7 +17,6 @@
     $verifica->execute();
     $resultado = $verifica->get_result();
 
-
     if ($resultado->num_rows > 0){
         $paciente = $resultado->fetch_assoc();
         $paciente_id = $paciente["id"];
@@ -40,3 +39,4 @@
     exit();
 }
 ?>
+
