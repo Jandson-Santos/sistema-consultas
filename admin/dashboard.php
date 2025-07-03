@@ -25,6 +25,9 @@ $admin_nome = $_SESSION["admin_nome"];
 
         <ul style="list-style: none; padding: 0;">
             <li><a href="medico/medicos.php"><button>Médicos</button></a></li>
+            <a href="medico/new-disponi.php">
+            <button>Definir Horários dos Médicos</button>
+            </a>
             <li><a href="pacientes.php"><button>Pacientes</button></a></li>
             <li><a href="consultas.php"><button>Consultas</button></a></li>
         </ul>
