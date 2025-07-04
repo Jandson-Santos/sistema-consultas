@@ -28,7 +28,7 @@
     </header>
 
     <main style="text-align: center; padding: 60px;">
-        <a href="public/agendar.php">
+        <a href="public/agendar/agendar.php">
             <button style="padding: 12px 24px; font-size: 16px; margin-top: 20px;">
                 Clique aqui para agendar uma consulta
             </button>

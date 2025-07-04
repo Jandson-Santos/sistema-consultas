@@ -41,6 +41,7 @@ unset($_SESSION["erro_agendamento"], $_SESSION["dados_formulario"]);
                 <option value="">Selecione</option>
                 <option value="1" <?php if (($dados['medico'] ?? '') == "1") echo "selected"; ?>>Dr. João - Clínico Geral</option>
                 <option value="2" <?php if (($dados['medico'] ?? '') == "2") echo "selected"; ?>>Dra. Carla - Cardiologista</option>
+                
             </select>
 
             <label for="data">Data da consulta</label>
