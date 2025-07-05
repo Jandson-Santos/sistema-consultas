@@ -75,7 +75,7 @@ $medicos = $conn->query("SELECT id, nome FROM medicos ORDER BY nome");
         <button type="submit">Salvar</button>
     </form>
     <br>
-    <a href="disponibilidade.php"><button>Voltar</button></a>
+    <a href="../dashboard.php"><button>Voltar</button></a>
 </main>
 </body>
 </html>

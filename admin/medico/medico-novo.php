@@ -5,7 +5,7 @@ require_once("../../config/db.php");
 
 // Verifica se o administrador está logado
 if (!isset($_SESSION["admin_id"])) {
-    // Se não estiver logado, redireciona para a página de login (uma pasta acima)
+    // Se não estiver logado, redireciona para a página de login
     header("Location: ../login.php");
     exit();
 }
@@ -45,24 +45,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8" />
     <title>Cadastrar Médico</title>
-    <!-- Link para o CSS (subindo duas pastas) -->
     <link rel="stylesheet" href="../../public/css/style.css" />
 </head>
 <body>
     <main>
         <h1>Cadastrar Novo Médico</h1>
 
-        <!-- Exibe mensagem de erro, se houver -->
         <?php if ($erro): ?>
             <p style="color: red;"><?php echo $erro; ?></p>
         <?php endif; ?>
 
-        <!-- Exibe mensagem de sucesso, se houver -->
         <?php if ($sucesso): ?>
             <p style="color: green;"><?php echo $sucesso; ?></p>
         <?php endif; ?>
 
-        <!-- Formulário para cadastro de médico -->
         <form method="POST">
             <label for="nome">Nome*</label><br />
             <input type="text" id="nome" name="nome" required /><br /><br />
@@ -83,7 +79,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
 
         <br />
-        <!-- Link para voltar para a lista de médicos -->
         <a href="medicos.php"><button>Voltar para lista</button></a>
     </main>
 </body>

@@ -60,6 +60,10 @@ $erro = "";
                 <button type="submit">Entrar</button>
             </form>
         </main>
+
+        <div class="voltar">
+        <a href="index.php">← Voltar</a>
+        </div>
     </body>
 
 

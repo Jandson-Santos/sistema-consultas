@@ -19,7 +19,7 @@ $dias_traducao = [
     "saturday"  => "sabado"
 ];
 
-// ✅ MODO 1: Retornar HORÁRIOS DISPONÍVEIS se data estiver presente
+//  Retornar HORÁRIOS DISPONÍVEIS se data estiver presente
 if ($data) {
     $dia_semana_en = strtolower(date("l", strtotime($data))); // ex: 'monday'
     $dia_semana = $dias_traducao[$dia_semana_en] ?? "";
@@ -59,7 +59,7 @@ if ($data) {
     exit();
 }
 
-// ✅ MODO 2: Retornar DIAS DA SEMANA se apenas medico_id estiver presente
+// Retornar DIAS DA SEMANA se apenas medico_id estiver presente
 $stmt = $conn->prepare("SELECT dia_semana FROM disponibilidades WHERE medico_id = ?");
 $stmt->bind_param("i", $medico_id);
 $stmt->execute();

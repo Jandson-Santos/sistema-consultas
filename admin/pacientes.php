@@ -2,12 +2,6 @@
 require_once("../config/db.php");
 session_start();
 
-// Verifica se admin está logado (opcional, se tiver controle de login)
-// if (!isset($_SESSION['admin_logado'])) {
-//     header("Location: login-admin.php");
-//     exit();
-// }
-
 // Busca todos os pacientes
 $sql = "SELECT nome, cpf, telefone, email FROM pacientes ORDER BY nome";
 $result = $conn->query($sql);
@@ -68,9 +62,5 @@ $result = $conn->query($sql);
             <?php endif; ?>
         </tbody>
     </table>
-
-    <div class="voltar">
-        <a href="painel.php">← Voltar para o painel</a>
-    </div>
 </body>
 </html>

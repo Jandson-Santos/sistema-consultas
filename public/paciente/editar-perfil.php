@@ -76,7 +76,6 @@ $paciente = $resultado->fetch_assoc();
         </form>
 
         <br>
-        <!-- Link corrigido para perfil.php que está na mesma pasta -->
         <a href="perfil-paciente.php"><button>Voltar ao Perfil</button></a>
     </main>
 </body>

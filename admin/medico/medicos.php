@@ -1,11 +1,11 @@
 <?php
 session_start();
-// Ajuste do caminho para a conexão com banco (subindo duas pastas)
+// Ajuste do caminho para a conexão com banco
 require_once("../../config/db.php");
 
 // Verificar se admin está logado
 if (!isset($_SESSION["admin_id"])) {
-    // Ajuste do redirecionamento para login (uma pasta acima de admin)
+    // Ajuste do redirecionamento para login
     header("Location: ../login.php");
     exit();
 }
@@ -20,14 +20,12 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Lista de Médicos</title>
-    <!-- Ajuste do caminho para o CSS -->
     <link rel="stylesheet" href="../../public/css/style.css" />
 </head>
 <body>
     <main>
         <h1>Médicos Cadastrados</h1>
 
-        <!-- Link para cadastro novo médico na mesma pasta -->
         <a href="medico-novo.php"><button>Cadastrar Novo Médico</button></a>
         <br><br>
 
@@ -65,7 +63,6 @@ $result = $conn->query($sql);
         </table>
 
         <br>
-        <!-- Ajuste do caminho do link para dashboard -->
         <a href="../dashboard.php"><button>Voltar ao Painel</button></a>
     </main>
 </body>

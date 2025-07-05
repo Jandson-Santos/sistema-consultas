@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../../config/db.php"); // Caminho para o arquivo de conexão ao banco
+require_once("../../config/db.php");
 
 // Verifica se o paciente está logado
 if (!isset($_SESSION["paciente_id"])) {

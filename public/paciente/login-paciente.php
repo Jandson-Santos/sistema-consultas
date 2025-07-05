@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($resultado->num_rows === 1) {
         $paciente = $resultado->fetch_assoc();
 
-        // Verificar senha (simples, porque está em texto plano)
+        // Verificar senha
         if ($senha === $paciente["senha"]) {
             // Login válido, iniciar sessão
             $_SESSION["paciente_id"] = $paciente["id"];
@@ -59,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <button type="submit">Entrar</button>
             
         </form>
+        <a href="../../index.php">← Voltar para a página inicial</a>
     </main>
 </body>
 </html>

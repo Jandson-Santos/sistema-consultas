@@ -2,12 +2,6 @@
 require_once("../config/db.php");
 session_start();
 
-// Se usar controle de login admin, validar aqui
-// if (!isset($_SESSION['admin_logado'])) {
-//     header("Location: login-admin.php");
-//     exit();
-// }
-
 // Consulta as consultas com JOIN para pegar nome do paciente e do médico
 $sql = "SELECT 
             c.id, c.data, c.hora, c.status, 
@@ -94,7 +88,7 @@ $result = $conn->query($sql);
     </table>
 
     <div class="voltar">
-        <a href="painel.php">← Voltar para o painel</a>
+        <a href="dashboard.php">← Voltar para o painel</a>
     </div>
 </body>
 </html>

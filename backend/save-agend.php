@@ -36,12 +36,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $paciente_id = $paciente["id"];
         $login = $paciente["login"];
     } else {
-        // Gerar login: pac + número sequencial (exemplo simples)
+        // Gerar login
         $resultCount = $conn->query("SELECT COUNT(*) as total FROM pacientes");
         $count = $resultCount->fetch_assoc()['total'] + 1;
         $login = 'pac' . str_pad($count, 3, '0', STR_PAD_LEFT);
 
-        // Senha: 6 primeiros dígitos do CPF
+        // Senha
         $senha = substr(preg_replace('/\D/', '', $cpf), 0, 6); 
 
         // Inserir novo paciente com login e senha simples
