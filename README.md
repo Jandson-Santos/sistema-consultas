@@ -14,3 +14,7 @@ Como rodar o projeto
 - Vá em Importar e envie o arquivo `sistema-consultas.sql`
 
 3. Acessar o projeto http://localhost/sistema-consultas/
+
+4. Login e senha para entrar na área do admin é:
+- adm@clinica.com
+- admin123
